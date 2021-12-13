@@ -1,21 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Coins from "./Coins";
+import News from "./News";
+import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+const Tab = createBottomTabNavigator();
+
+
+function App() {
+  return(
+  <NavigationContainer>
+    <Tab.Navigator>
+    <Tab.Screen name="Crypto" component={Coins}
+      options={{
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="currency-usd-circle-outline" size={24} color="black" />
+            )
+          }}/>
+    <Tab.Screen name="News" component={News}
+      options={{
+            tabBarIcon: ({ color }) => (
+              <Ionicons name="newspaper-outline" size={24} color="black" />
+            )
+          }}/>
+    </Tab.Navigator>
+  </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
