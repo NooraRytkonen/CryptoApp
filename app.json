@@ -27,6 +27,7 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Final task for Mobile Software Development course (Haaga-Helia 2021)"
   }
 }
